@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:ns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>DavidLievrouw.Utils</id>
+    <version>1.0.0-beta</version>
+    <authors>David Lievrouw</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Utilities for other DavidLievrouw NuGet packages or products.</description>
+    <dependencies />
+  </metadata>
+  <files>
+    <file src="target\Utils\DLUtils.*" target="lib\net451\" />
+  </files>
+</package>
