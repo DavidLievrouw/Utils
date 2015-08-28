@@ -51,7 +51,7 @@
       Value="$(NuSpecVersion)" />
 
     <MakeDir ContinueOnError="false" Directories="$(DeploymentTargetDirectory)" Condition="!Exists('$(DeploymentTargetDirectory)')" />
-    <Exec Command='&quot;$(NuGetExe)&quot; pack &quot;$(MSBuildProjectDirectory)\DavidLievrouw.Utils.nuspec&quot; -Version $(NuSpecVersion) -Symbols -NonInteractive -o &quot;$(DeploymentTargetDirectory)&quot;' />    
+    <Exec Command='&quot;$(NuGetExe)&quot; pack &quot;$(MSBuildProjectDirectory)\DavidLievrouw.Utils.nuspec&quot; -Version $(NuSpecVersion) -NonInteractive -o &quot;$(DeploymentTargetDirectory)&quot;' />    
   </Target>
 
   <Target Name="Push" DependsOnTargets="InitVersion">
