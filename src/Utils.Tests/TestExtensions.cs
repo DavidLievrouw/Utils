@@ -7,7 +7,7 @@ using FakeItEasy;
 using KellermanSoftware.CompareNetObjects;
 
 namespace DavidLievrouw.Utils {
-  public static class Extensions {
+  public static class TestExtensions {
     public static T CreateUninitializedInstance<T>() where T : class {
       return (T) FormatterServices.GetUninitializedObject(typeof(T));
     }

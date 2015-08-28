@@ -53,6 +53,13 @@
     <Compile Include="Crypto\IEntropyCreator.cs" />
     <Compile Include="Crypto\ILocalMachineScopeStringEncryptor.cs" />
     <Compile Include="Crypto\LocalMachineScopeStringEncryptor.cs" />
+    <Compile Include="GenericExtensions.cs" />
+    <Compile Include="IAdapter.cs" />
+    <Compile Include="ICommandHandler.cs" />
+    <Compile Include="IConverter.cs" />
+    <Compile Include="IQueryHandler.cs" />
+    <Compile Include="ISystemClock.cs" />
+    <Compile Include="RealSystemClock.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

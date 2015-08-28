@@ -61,7 +61,7 @@
     <Compile Include="Crypto\DataProtectorTests.cs" />
     <Compile Include="Crypto\EntropyCreatorTests.cs" />
     <Compile Include="Crypto\LocalMachineScopeStringEncryptorTests.cs" />
-    <Compile Include="Extensions.cs" />
+    <Compile Include="TestExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
