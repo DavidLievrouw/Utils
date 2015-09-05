@@ -52,7 +52,9 @@
     <Compile Include="Crypto\IDataProtectorFactory.cs" />
     <Compile Include="Crypto\IEntropyCreator.cs" />
     <Compile Include="Crypto\ILocalMachineScopeStringEncryptor.cs" />
+    <Compile Include="Crypto\ISecretHasher.cs" />
     <Compile Include="Crypto\LocalMachineScopeStringEncryptor.cs" />
+    <Compile Include="Crypto\SecretHasher.cs" />
     <Compile Include="GenericExtensions.cs" />
     <Compile Include="IAdapter.cs" />
     <Compile Include="ICommandHandler.cs" />
