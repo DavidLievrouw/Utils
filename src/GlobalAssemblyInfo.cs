@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Reflection.AssemblyDescription("This .NET assembly is part of DavidLievrouw.Utils.")]
-[assembly: System.Reflection.AssemblyCopyright("© 2016 David Lievrouw. All rights reserved.")]
+[assembly: System.Reflection.AssemblyCopyright("Created by David Lievrouw in 2016, License: MIT")]
 [assembly: System.Reflection.AssemblyConfiguration("Release")]
 [assembly: System.Reflection.AssemblyVersion("2.0.0.0")]
 [assembly: System.Reflection.AssemblyFileVersion("2.0.0.0")]

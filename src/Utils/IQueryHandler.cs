@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
 
 namespace DavidLievrouw.Utils {
-  public interface IQueryHandler<TResult> {
-    Task<TResult> Handle();
+  public interface IQueryHandler<TResponse> {
+    Task<TResponse> Handle();
   }
 
-  public interface IQueryHandler<in TArg, TResult> {
-    Task<TResult> Handle(TArg request);
+  public interface IQueryHandler<in TRequest, TResponse> {
+    Task<TResponse> Handle(TRequest request);
   }
 }

@@ -8,8 +8,8 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DavidLievrouw.Utils</RootNamespace>
-    <AssemblyName>DLUtils</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <AssemblyName>DavidLievrouw.Utils</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -57,7 +57,6 @@
     <Compile Include="Crypto\SecretHasher.cs" />
     <Compile Include="GenericExtensions.cs" />
     <Compile Include="IAdapter.cs" />
-    <Compile Include="ICommandHandler.cs" />
     <Compile Include="IConverter.cs" />
     <Compile Include="IQueryHandler.cs" />
     <Compile Include="ISystemClock.cs" />

@@ -2,6 +2,6 @@
 
 namespace DavidLievrouw.Utils {
   public interface ISystemClock {
-    DateTimeOffset Now { get; }
+    DateTimeOffset UtcNow { get; }
   }
 }

@@ -2,8 +2,6 @@
 
 namespace DavidLievrouw.Utils {
   public class RealSystemClock : ISystemClock {
-    public DateTimeOffset Now {
-      get { return DateTimeOffset.Now; }
-    }
+    public DateTimeOffset UtcNow => DateTimeOffset.UtcNow;
   }
 }
