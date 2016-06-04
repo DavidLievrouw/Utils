@@ -50,7 +50,7 @@
 			 StopOnFirstFailure="true"
 			 Targets="RestorePackages"
 			 BuildInParallel="false"/>
-    <MSBuild Projects="$(TestScriptDirectory)\test.proj;"
+    <MSBuild Projects="$(TestScriptDirectory)\unittest.proj;"
 			 StopOnFirstFailure="true"
 			 Targets="UnitTest"
 			 BuildInParallel="false"/>

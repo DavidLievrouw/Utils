@@ -3,7 +3,9 @@
   <PropertyGroup>
     <RootPath>$(MSBuildProjectDirectory)\..</RootPath>
     <BuildDirectory>$(RootPath)\build</BuildDirectory>
-    <TargetDirectory>$(BuildDirectory)\target</TargetDirectory>
+    <DeploymentDirectory>$(BuildDirectory)\output\deploy</DeploymentDirectory>
+    <BuildDirectory>$(RootPath)\build</BuildDirectory>
+    <BuildOutputDirectory>$(BuildDirectory)\output\build</BuildOutputDirectory>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(BuildConfiguration)' == ''">
@@ -12,13 +14,16 @@
   
   <Target Name="InitDeploy">
 	<RemoveDir ContinueOnError="false"
-			   Directories="$(TargetDirectory)"
-			   Condition="Exists('$(TargetDirectory)')" />
+			   Directories="$(DeploymentDirectory)"
+			   Condition="Exists('$(DeploymentDirectory)')" />
   </Target>
 
   <Target Name="Deploy" DependsOnTargets="InitDeploy">
     <MSBuild Projects="$(MSBuildProjectDirectory)\deploy_utils.proj;"
-             Properties="Configuration=$(BuildConfiguration)"
+             Properties="
+			   Configuration=$(BuildConfiguration);
+			   BuildOutputDirectory=$(BuildOutputDirectory)\Utils;
+			   DeploymentDirectory=$(DeploymentDirectory)\Utils;"
 			 StopOnFirstFailure="true"
 			 Targets="Deploy"
 			 BuildInParallel="false"/>

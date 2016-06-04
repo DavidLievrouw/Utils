@@ -3,21 +3,20 @@
   <PropertyGroup>
     <RootPath>$(MSBuildProjectDirectory)\..</RootPath>
     <BuildDirectory>$(RootPath)\build</BuildDirectory>
-    <TargetDirectory>$(BuildDirectory)\target</TargetDirectory>
+    <DeploymentDirectory Condition="'$(DeploymentDirectory)'==''">$(BuildDirectory)\output\deploy\Utils</DeploymentDirectory>
+    <BuildOutputDirectory Condition="'$(BuildOutputDirectory)'==''">$(BuildDirectory)\output\build\Utils</BuildOutputDirectory>
 	<SourceDirectory>$(RootPath)\src</SourceDirectory>
 	<Configuration Condition="'$(Configuration)'==''">Release</Configuration>
-	<BuildTargetDirectory>$(SourceDirectory)\Utils\bin\$(Configuration)</BuildTargetDirectory>
-	<DeploymentTargetDirectory>$(TargetDirectory)\Utils</DeploymentTargetDirectory>
   </PropertyGroup>
   
   <Target Name="Deploy">
-    <MakeDir Directories="$(DeploymentTargetDirectory)" />
+    <MakeDir Directories="$(DeploymentDirectory)" />
 	
   	<CreateItem Include="
-	              $(BuildTargetDirectory)\**\*"
+	              $(BuildOutputDirectory)\**\*"
 				Exclude="">
       <Output ItemName="MSBuildTasksFiles" TaskParameter="Include"/>
     </CreateItem>
-    <Copy DestinationFolder="$(DeploymentTargetDirectory)\%(RecursiveDir)" SourceFiles="@(MSBuildTasksFiles)" />
+    <Copy DestinationFolder="$(DeploymentDirectory)\%(RecursiveDir)" SourceFiles="@(MSBuildTasksFiles)" />
   </Target>
 </Project>

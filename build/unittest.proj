@@ -4,35 +4,46 @@
     <RootPath>$(MSBuildProjectDirectory)\..</RootPath>
     <SourceDirectory>$(RootPath)\src</SourceDirectory>
     <BuildDirectory>$(RootPath)\build</BuildDirectory>
+    <BuildOutputDirectory>$(BuildDirectory)\output\test</BuildOutputDirectory>
 	<ResultsOutputPath>$(BuildDirectory)\log</ResultsOutputPath>
     <PackagesPath>$(BuildDirectory)\packages</PackagesPath>
 	<Configuration Condition="'$(Configuration)'==''">Release</Configuration>
-    <MSBuildCommunityTasksPath>$(PackagesPath)\MSBuildTasks.1.4.0.88\tools</MSBuildCommunityTasksPath>
-	<NUnitPath>$(PackagesPath)\NUnit.Runners.2.6.4\tools</NUnitPath>
-	<VisualStudioVersion Condition="'$(VisualStudioVersion)'==''">14.0</VisualStudioVersion>
+    <MSBuildCommunityTasksPath>$(PackagesPath)\MSBuildTasks.1.5.0.196\tools</MSBuildCommunityTasksPath>
+	<NUnitPath>$(PackagesPath)\NUnit.ConsoleRunner.3.2.1\tools</NUnitPath>
   </PropertyGroup>
   <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.Targets"/>
-   
-  <Target Name="Build">
+  
+  <Target Name="SetVisualStudioVersion">
+    <PropertyGroup>
+	  <VisualStudioVersion Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0')">12.0</VisualStudioVersion>
+	  <VisualStudioVersion Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0')">14.0</VisualStudioVersion>
+	</PropertyGroup>
+	<Message Text="Using Visual Studio version '$(VisualStudioVersion)'." />
+  </Target>
+  
+  <Target Name="Build" DependsOnTargets="SetVisualStudioVersion">
     <MSBuild 
       Projects="$(SourceDirectory)\Utils.Tests\Utils.Tests.csproj;"
 	  Targets="Build"
-      Properties="Configuration=$(Configuration);VisualStudioVersion=$(VisualStudioVersion)"
+      Properties="
+	    Configuration=$(Configuration);
+		VisualStudioVersion=$(VisualStudioVersion);
+		OutputPath=$(BuildOutputDirectory);"
       StopOnFirstFailure="true"
       ContinueOnError="false"
       BuildInParallel="false" />
   </Target>
   
   <Target Name="UnitTestNET" DependsOnTargets="Build">
-    <CreateItem Include="
-	              $(SourceDirectory)\Utils.Tests\bin\$(Configuration)\DLUtils.Tests.dll;">
+    <CreateItem Include="$(BuildOutputDirectory)\DavidLievrouw.Utils.Tests.dll;">
       <Output TaskParameter="Include" ItemName="NUnitTestAssemblies" />
     </CreateItem>
     
-	<NUnit
+	<NUnit3
       Assemblies="@(NUnitTestAssemblies)"
       ToolPath="$(NUnitPath)"
-      Framework="net-4.5"
+      Framework="v4.5"
+	  Workers="4"
       ContinueOnError="true"
       OutputXmlFile="$(ResultsOutputPath)\nunit-unittests.xml" />
     <Message Text="##teamcity[importData type='nunit' path='$(ResultsOutputPath)\nunit-unittests.xml']"/>

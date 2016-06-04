@@ -4,10 +4,9 @@
     <RootPath>$(MSBuildProjectDirectory)\..</RootPath>
     <PackagesPath>$(MSBuildProjectDirectory)\packages</PackagesPath>
     <BuildDirectory>$(RootPath)\build</BuildDirectory>
-    <TargetDirectory>$(BuildDirectory)\target</TargetDirectory>
-    <DeploymentTargetDirectory>$(TargetDirectory)\NuGet</DeploymentTargetDirectory>
+    <TargetDirectory>$(BuildDirectory)\output\nuget</TargetDirectory>
     <NuGetExe Condition="$(NuGetExe) == ''">$(RootPath)\.nuget\nuget.exe</NuGetExe>
-    <MSBuildCommunityTasksPath>$(PackagesPath)\MSBuildTasks.1.4.0.88\tools</MSBuildCommunityTasksPath>
+    <MSBuildCommunityTasksPath>$(PackagesPath)\MSBuildTasks.1.5.0.196\tools</MSBuildCommunityTasksPath>
   </PropertyGroup>
   <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets"/>
   <Import Project="Utils.targets" />
@@ -38,8 +37,8 @@
   
   <Target Name="InitPack">
 	<RemoveDir ContinueOnError="false"
-			   Directories="$(DeploymentTargetDirectory)"
-			   Condition="Exists('$(DeploymentTargetDirectory)')" />
+			   Directories="$(TargetDirectory)"
+			   Condition="Exists('$(TargetDirectory)')" />
   </Target>
   
   <Target Name="Pack" DependsOnTargets="InitVersion;InitPack">
@@ -50,11 +49,11 @@
       XPath="/package/metadata/version"
       Value="$(NuSpecVersion)" />
 
-    <MakeDir ContinueOnError="false" Directories="$(DeploymentTargetDirectory)" Condition="!Exists('$(DeploymentTargetDirectory)')" />
-    <Exec Command='&quot;$(NuGetExe)&quot; pack &quot;$(MSBuildProjectDirectory)\DavidLievrouw.Utils.nuspec&quot; -Version $(NuSpecVersion) -NonInteractive -o &quot;$(DeploymentTargetDirectory)&quot;' />    
+    <MakeDir ContinueOnError="false" Directories="$(TargetDirectory)" Condition="!Exists('$(TargetDirectory)')" />
+    <Exec Command='&quot;$(NuGetExe)&quot; pack &quot;$(MSBuildProjectDirectory)\DavidLievrouw.Utils.nuspec&quot; -Version $(NuSpecVersion) -NonInteractive -o &quot;$(TargetDirectory)&quot;' />    
   </Target>
 
   <Target Name="Push" DependsOnTargets="InitVersion">
-    <Exec Command='$(NuGetExe) push $(DeploymentTargetDirectory)\DavidLievrouw.Utils.$(NuSpecVersion).nupkg' />
+    <Exec Command='$(NuGetExe) push $(TargetDirectory)\DavidLievrouw.Utils.$(NuSpecVersion).nupkg' />
   </Target>
 </Project>
