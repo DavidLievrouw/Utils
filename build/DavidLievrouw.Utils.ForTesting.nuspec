@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:ns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>DavidLievrouw.Utils.ForTesting</id>
+    <version>2.0.0</version>
+    <authors>David Lievrouw</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Utilities for other DavidLievrouw NuGet packages or products, specifically for unit and integration testing.</description>
+    <dependencies>
+      <group targetFramework="net452">
+        <dependency id="DavidLievrouw.Utils" version="2.0.0" />
+        <dependency id="CompareNETObjects" version="3.05.0.0" />
+        <dependency id="FakeItEasy" version="2.0.0" />
+        <dependency id="FluentAssertions" version="4.6.3" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="output\deploy\Utils.ForTesting\DavidLievrouw.Utils.ForTesting.*" target="lib\net452\" />
+  </files>
+</package>

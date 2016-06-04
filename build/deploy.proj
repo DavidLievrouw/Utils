@@ -27,5 +27,14 @@
 			 StopOnFirstFailure="true"
 			 Targets="Deploy"
 			 BuildInParallel="false"/>
+			 
+    <MSBuild Projects="$(MSBuildProjectDirectory)\deploy_utils_fortesting.proj;"
+             Properties="
+			   Configuration=$(BuildConfiguration);
+			   BuildOutputDirectory=$(BuildOutputDirectory)\Utils.ForTesting;
+			   DeploymentDirectory=$(DeploymentDirectory)\Utils.ForTesting;"
+			 StopOnFirstFailure="true"
+			 Targets="Deploy"
+			 BuildInParallel="false"/>
   </Target>
 </Project>
