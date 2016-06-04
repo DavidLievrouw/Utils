@@ -9,11 +9,11 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Reflection.AssemblyDescription("This .NET assembly is part of DavidLievrouw.Utils.")]
-[assembly: System.Reflection.AssemblyCopyright("© 2015 David Lievrouw. All rights reserved.")]
+[assembly: System.Reflection.AssemblyCopyright("© 2016 David Lievrouw. All rights reserved.")]
 [assembly: System.Reflection.AssemblyConfiguration("Release")]
-[assembly: System.Reflection.AssemblyVersion("1.0.2.0")]
-[assembly: System.Reflection.AssemblyFileVersion("1.0.2.0")]
-[assembly: System.Reflection.AssemblyInformationalVersion("1.0.2.0")]
+[assembly: System.Reflection.AssemblyVersion("2.0.0.0")]
+[assembly: System.Reflection.AssemblyFileVersion("2.0.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersion("2.0.0.0")]
 [assembly: System.Reflection.AssemblyCompany("David Lievrouw")]
 [assembly: System.Reflection.AssemblyProduct("DavidLievrouw.Utils")]
 [assembly: System.CLSCompliant(false)]
