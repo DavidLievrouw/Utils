@@ -55,7 +55,11 @@
     <Compile Include="Crypto\ISecretHasher.cs" />
     <Compile Include="Crypto\LocalMachineScopeStringEncryptor.cs" />
     <Compile Include="Crypto\SecretHasher.cs" />
-    <Compile Include="GenericExtensions.cs" />
+    <Compile Include="ExtensionsForEnumerableOfT.ForEach.cs" />
+    <Compile Include="ExtensionsForT.ToEnumerable.cs" />
+    <Compile Include="ExtensionsForT.Get.cs" />
+    <Compile Include="ExtensionsForT.DefaultIf.cs" />
+    <Compile Include="ExtensionsForT.IsNullOrDefault.cs" />
     <Compile Include="IAdapter.cs" />
     <Compile Include="IConverter.cs" />
     <Compile Include="IQueryHandler.cs" />
