@@ -5,7 +5,11 @@
     <version>3.0.0</version>
     <authors>David Lievrouw</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <title>DavidLievrouw.Utils.ForTesting</title>
+    <projectUrl>https://github.com/DavidLievrouw/Utils</projectUrl>
+    <summary>Utilities for other DavidLievrouw NuGet packages or products, specifically for unit and integration testing.</summary>
     <description>Utilities for other DavidLievrouw NuGet packages or products, specifically for unit and integration testing.</description>
+    <copyright>Copyright (c) 2016 David Lievrouw</copyright>
     <dependencies>
       <group targetFramework="net452">
         <dependency id="DavidLievrouw.Utils" version="3.0.0" />

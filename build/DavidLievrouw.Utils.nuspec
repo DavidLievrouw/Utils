@@ -5,7 +5,11 @@
     <version>3.0.0</version>
     <authors>David Lievrouw</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <title>DavidLievrouw.Utils</title>
+    <projectUrl>https://github.com/DavidLievrouw/Utils</projectUrl>
+    <summary>Utilities for other DavidLievrouw NuGet packages or products.</summary>
     <description>Utilities for other DavidLievrouw NuGet packages or products.</description>
+    <copyright>Copyright (c) 2016 David Lievrouw</copyright>
     <dependencies />
   </metadata>
   <files>
