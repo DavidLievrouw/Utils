@@ -12,6 +12,7 @@
         <dependency id="CompareNETObjects" version="3.05.0.0" />
         <dependency id="FakeItEasy" version="2.0.0" />
         <dependency id="FluentAssertions" version="4.8.0" />
+        <dependency id="NUnit" version="3.2.1" />
       </group>
     </dependencies>
   </metadata>
