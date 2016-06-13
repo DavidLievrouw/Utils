@@ -62,6 +62,7 @@
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="CompareNetObjects\ExtensionsForT.cs" />
+    <Compile Include="FakeItEasy\ExtensionsForArgumentConstraintManagerOfT.cs" />
     <Compile Include="FakeItEasy\ExtensionsForT.cs" />
     <Compile Include="FluentAssertions\ExtensionsForConstructorInfoAssertions.cs" />
     <Compile Include="FluentAssertions\ExtensionsForReferenceTypeAssertions.cs" />
