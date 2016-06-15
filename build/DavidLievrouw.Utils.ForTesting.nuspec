@@ -2,7 +2,7 @@
 <package xmlns:ns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>DavidLievrouw.Utils.ForTesting</id>
-    <version>3.0.0</version>
+    <version>3.0.1</version>
     <authors>David Lievrouw</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <title>DavidLievrouw.Utils.ForTesting</title>
@@ -12,7 +12,7 @@
     <copyright>Copyright (c) 2016 David Lievrouw</copyright>
     <dependencies>
       <group targetFramework="net452">
-        <dependency id="DavidLievrouw.Utils" version="3.0.0" />
+        <dependency id="DavidLievrouw.Utils" version="3.0.1" />
         <dependency id="CompareNETObjects" version="3.05.0.0" />
         <dependency id="FakeItEasy" version="2.0.0" />
         <dependency id="FluentAssertions" version="4.8.0" />
