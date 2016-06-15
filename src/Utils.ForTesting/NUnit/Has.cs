@@ -1,10 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework.Constraints;
 
 namespace DavidLievrouw.Utils.ForTesting.NUnit {
   public static class Has {
     public static IResolveConstraint HasSamePropertyValuesAs(object expected) {
       return new SamePropertyValuesConstraint(expected);
+    }
+
+    public static IResolveConstraint HasSamePropertyValuesAs(object expected, IEnumerable<string> membersToIgnore) {
+      return new SamePropertyValuesConstraint(expected, membersToIgnore);
+    }
+
+    public static IResolveConstraint HasSamePropertyValuesAs(object expected, bool ignoreCollectionOrder) {
+      return new SamePropertyValuesConstraint(expected, ignoreCollectionOrder);
+    }
+
+    public static IResolveConstraint HasSamePropertyValuesAs(object expected, bool ignoreCollectionOrder, IEnumerable<string> membersToIgnore) {
+      return new SamePropertyValuesConstraint(expected, ignoreCollectionOrder, membersToIgnore);
     }
 
     public static ConstraintExpression All => global::NUnit.Framework.Has.All;

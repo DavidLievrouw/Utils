@@ -9,6 +9,10 @@ namespace DavidLievrouw.Utils.ForTesting.NUnit {
       return new SameCollectionAsConstraint<T>(expected);
     }
 
+    public static IResolveConstraint SameCollectionAs<T>(IEnumerable<T> expected, IEnumerable<string> membersToIgnore) {
+      return new SameCollectionAsConstraint<T>(expected, membersToIgnore);
+    }
+
     public static ConstraintExpression All => global::NUnit.Framework.Is.All;
     public static BinarySerializableConstraint BinarySerializable => global::NUnit.Framework.Is.BinarySerializable;
     public static EmptyConstraint Empty => global::NUnit.Framework.Is.Empty;
