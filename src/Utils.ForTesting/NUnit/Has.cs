@@ -4,19 +4,19 @@ using NUnit.Framework.Constraints;
 
 namespace DavidLievrouw.Utils.ForTesting.NUnit {
   public static class Has {
-    public static IResolveConstraint HasSamePropertyValuesAs(object expected) {
+    public static IResolveConstraint SamePropertyValuesAs(object expected) {
       return new SamePropertyValuesConstraint(expected);
     }
 
-    public static IResolveConstraint HasSamePropertyValuesAs(object expected, IEnumerable<string> membersToIgnore) {
+    public static IResolveConstraint SamePropertyValuesAs(object expected, IEnumerable<string> membersToIgnore) {
       return new SamePropertyValuesConstraint(expected, membersToIgnore);
     }
 
-    public static IResolveConstraint HasSamePropertyValuesAs(object expected, bool ignoreCollectionOrder) {
+    public static IResolveConstraint SamePropertyValuesAs(object expected, bool ignoreCollectionOrder) {
       return new SamePropertyValuesConstraint(expected, ignoreCollectionOrder);
     }
 
-    public static IResolveConstraint HasSamePropertyValuesAs(object expected, bool ignoreCollectionOrder, IEnumerable<string> membersToIgnore) {
+    public static IResolveConstraint SamePropertyValuesAs(object expected, bool ignoreCollectionOrder, IEnumerable<string> membersToIgnore) {
       return new SamePropertyValuesConstraint(expected, ignoreCollectionOrder, membersToIgnore);
     }
 
