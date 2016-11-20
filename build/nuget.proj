@@ -69,7 +69,7 @@
   </Target>
 
   <Target Name="Push" DependsOnTargets="InitVersion">
-    <Exec Command='$(NuGetExe) push $(TargetDirectory)\DavidLievrouw.Utils.$(NuSpecVersion).nupkg' />
-    <Exec Command='$(NuGetExe) push $(TargetDirectory)\DavidLievrouw.Utils.ForTesting.$(NuSpecVersion).nupkg' />
+    <Exec Command='$(NuGetExe) push $(TargetDirectory)\DavidLievrouw.Utils.$(NuSpecVersion).nupkg -source http://www.nuget.org' />
+    <Exec Command='$(NuGetExe) push $(TargetDirectory)\DavidLievrouw.Utils.ForTesting.$(NuSpecVersion).nupkg -source http://www.nuget.org' />
   </Target>
 </Project>
