@@ -65,6 +65,9 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\InternalsVisibleTo.cs">
+      <Link>Properties\InternalsVisibleTo.cs</Link>
+    </Compile>
     <Compile Include="CompareNetObjects\ExtensionsForT.cs" />
     <Compile Include="DotNet\NormalisedLineBreakInvariantStringComparer.cs" />
     <Compile Include="DotNet\SqlExceptionBuilder.cs" />

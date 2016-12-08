@@ -10,7 +10,11 @@
     <summary>Utilities for other DavidLievrouw NuGet packages or products, specifically for MSBuild.</summary>
     <description>Utilities for other DavidLievrouw NuGet packages or products, specifically for MSBuild.</description>
     <copyright>Copyright (c) 2016 David Lievrouw</copyright>
-    <dependencies />
+    <dependencies>
+      <group targetFramework="net462">
+        <dependency id="FluentValidation" version="6.2.1.0" />
+      </group>
+    </dependencies>
   </metadata>
   <files>
     <file src="output\deploy\Utils.MSBuild\DavidLievrouw.Utils.MSBuild.*" target="lib\net462\" />

@@ -45,6 +45,9 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\InternalsVisibleTo.cs">
+      <Link>Properties\InternalsVisibleTo.cs</Link>
+    </Compile>
     <Compile Include="Crypto\DataProtector.cs" />
     <Compile Include="Crypto\DataProtectorFactory.cs" />
     <Compile Include="Crypto\EntropyCreator.cs" />

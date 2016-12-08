@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="IntegrationTest" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <RootPath>$(MSBuildProjectDirectory)\..</RootPath>
+    <SourceDirectory>$(RootPath)\src</SourceDirectory>
+    <BuildDirectory>$(RootPath)\build</BuildDirectory>
+	<ResultsOutputPath>$(BuildDirectory)\log</ResultsOutputPath>
+    <PackagesPath>$(BuildDirectory)\packages</PackagesPath>
+	<Configuration Condition="'$(Configuration)'==''">Release</Configuration>
+    <MSBuildCommunityTasksPath>$(PackagesPath)\MSBuildTasks.1.5.0.214\tools</MSBuildCommunityTasksPath>
+	<NUnitPath>$(PackagesPath)\NUnit.ConsoleRunner.3.5.0\tools</NUnitPath>
+	<VisualStudioVersion Condition="'$(VisualStudioVersion)'==''">14.0</VisualStudioVersion>
+	<DLMSBuildTasksPath>$(BuildDirectory)\output\deploy\Utils.MSBuild</DLMSBuildTasksPath>
+  </PropertyGroup>
+  <Import Project="$(DLMSBuildTasksPath)\DavidLievrouw.Utils.MSBuild.Tasks.targets"/>
+  <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets"/>
+  
+  <Target Name="IntegrationTest" DependsOnTargets="
+	GetVersionParts;
+	EncryptForLocalMachineScope;
+	DecryptForLocalMachineScope;
+	RunIntegrationTests" />
+	
+  <Target Name="GetVersionParts">
+    <PropertyGroup>
+      <VersionNumber>12.2.1.31255</VersionNumber>
+    </PropertyGroup>
+    <GetVersionParts VersionNumber="$(VersionNumber)">
+      <Output TaskParameter="MajorVersion" PropertyName="Major" />
+      <Output TaskParameter="MinorVersion" PropertyName="Minor" />
+      <Output TaskParameter="BuildVersion" PropertyName="Build" />
+      <Output TaskParameter="RevisionVersion" PropertyName="Revision" />
+    </GetVersionParts>
+    <Message Text="$(VersionNumber) consists of $(Major)-$(Minor)-$(Build)-$(Revision)." />
+  </Target>
+  
+  <Target Name="EncryptForLocalMachineScope">
+    <PropertyGroup>
+      <StringToEncrypt>This is my $µ£ string?!</StringToEncrypt>
+    </PropertyGroup>
+	<ItemGroup>
+      <Purposes Include="David;Lievrouw;MSBuild;Tasks" />
+    </ItemGroup>
+    <EncryptForLocalMachineScope StringToEncrypt="$(StringToEncrypt)" Purposes="@(Purposes)">
+      <Output TaskParameter="EncryptedString" PropertyName="Encrypted" />
+    </EncryptForLocalMachineScope>
+    <Message Text="$(StringToEncrypt) encrypts to $(Encrypted)." />
+  </Target>
+  
+  <Target Name="DecryptForLocalMachineScope">
+    <PropertyGroup>
+      <StringToEncrypt>This is my $µ£ string?!</StringToEncrypt>
+    </PropertyGroup>
+    <ItemGroup>
+      <Purposes Include="David;Lievrouw;MSBuild;Tasks" />
+    </ItemGroup>
+    <EncryptForLocalMachineScope StringToEncrypt="$(StringToEncrypt)" Purposes="@(Purposes)">
+      <Output TaskParameter="EncryptedString" PropertyName="Encrypted" />
+    </EncryptForLocalMachineScope>
+    <Message Text="$(StringToEncrypt) encrypts to $(Encrypted)." />
+    <DecryptForLocalMachineScope StringtoDecrypt="$(Encrypted)" Purposes="@(Purposes)">
+      <Output TaskParameter="DecryptedString" PropertyName="Decrypted" />
+    </DecryptForLocalMachineScope>
+    <Message Text="$(Encrypted) decrypts to $(Decrypted)." />
+  </Target>
+  
+  <Target Name="Build">
+    <MSBuild 
+      Projects="$(SourceDirectory)\Utils.MSBuild.IntegrationTests\Utils.MSBuild.IntegrationTests.csproj;"
+	  Targets="Build"
+      Properties="Configuration=$(Configuration);VisualStudioVersion=$(VisualStudioVersion)"
+      StopOnFirstFailure="true"
+      ContinueOnError="false"
+      BuildInParallel="false" />
+  </Target>
+  
+  <Target Name="IntegrationTestNET" DependsOnTargets="Build">
+    <CreateItem Include="$(SourceDirectory)\Utils.MSBuild.IntegrationTests\bin\$(Configuration)\DavidLievrouw.Utils.MSBuild.IntegrationTests.dll;">
+      <Output TaskParameter="Include" ItemName="NUnitTestAssemblies" />
+    </CreateItem>
+    
+	<NUnit
+      Assemblies="@(NUnitTestAssemblies)"
+      ToolPath="$(NUnitPath)"
+      Framework="net-4.5"
+      ContinueOnError="true"
+      OutputXmlFile="$(ResultsOutputPath)\nunit-integrationtests.xml" />
+    <Message Text="##teamcity[importData type='nunit' path='$(ResultsOutputPath)\nunit-integrationtests.xml']"/>
+  </Target>
+  
+  <Target Name="RunIntegrationTests" DependsOnTargets="IntegrationTestNET" />
+</Project>

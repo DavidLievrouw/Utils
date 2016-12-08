@@ -33,6 +33,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="System" />
@@ -47,12 +51,41 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\InternalsVisibleTo.cs">
+      <Link>Properties\InternalsVisibleTo.cs</Link>
+    </Compile>
+    <Compile Include="Tasks\CustomTask.cs" />
+    <Compile Include="Tasks\DecryptForLocalMachineScope.cs" />
+    <Compile Include="Tasks\EncryptForLocalMachineScope.cs" />
+    <Compile Include="Tasks\GetVersionParts.cs" />
+    <Compile Include="Tasks\Handlers\DecryptForLocalMachineScopeQueryHandler.cs" />
+    <Compile Include="Tasks\Handlers\EncryptForLocalMachineScopeQueryHandler.cs" />
+    <Compile Include="Tasks\Handlers\Models\DecryptForLocalMachineScopeRequest.cs" />
+    <Compile Include="Tasks\Handlers\Models\EncryptForLocalMachineScopeRequest.cs" />
+    <Compile Include="Tasks\Handlers\Models\Validation\DecryptForLocalMachineScopeRequestValidator.cs" />
+    <Compile Include="Tasks\Handlers\Models\Validation\EncryptForLocalMachineScopeRequestValidator.cs" />
+    <Compile Include="Tasks\Handlers\Models\Validation\IDecryptForLocalMachineScopeRequestValidator.cs" />
+    <Compile Include="Tasks\Handlers\Models\Validation\IEncryptForLocalMachineScopeRequestValidator.cs" />
+    <Compile Include="Tasks\Handlers\Models\Validation\NullAllowableValidator.cs" />
+    <Compile Include="Tasks\Handlers\RequestValidationException.cs" />
+    <Compile Include="Tasks\Handlers\ValidationAwareHandler.cs" />
+    <Compile Include="Tasks\ITaskLogger.cs" />
+    <Compile Include="Tasks\MSBuildTaskLogger.cs" />
     <Compile Include="Tasks\NUnit3.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DavidLievrouw.Utils.MSBuild.Tasks.targets">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{36585812-648b-40e8-a837-4b623f5a0145}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

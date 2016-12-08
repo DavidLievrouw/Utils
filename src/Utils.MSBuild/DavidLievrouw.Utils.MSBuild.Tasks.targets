@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <UGMSBuildTasksPath Condition="'$(UGMSBuildTasksPath)' == ''">$(MSBuildThisFileDirectory)</UGMSBuildTasksPath>
-    <UGMSBuildTasksLib>$([MSBUILD]::Unescape($(UGMSBuildTasksPath)\DavidLievrouw.Utils.MSBuild.dll))</UGMSBuildTasksLib>
+    <DLMSBuildTasksPath Condition="'$(DLMSBuildTasksPath)' == ''">$(MSBuildThisFileDirectory)</DLMSBuildTasksPath>
+    <DLMSBuildTasksLib>$([MSBUILD]::Unescape($(DLMSBuildTasksPath)\DavidLievrouw.Utils.MSBuild.dll))</DLMSBuildTasksLib>
   </PropertyGroup>
 
-  <UsingTask AssemblyFile="$(UGMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.Tasks.NUnit3" />
+  <UsingTask AssemblyFile="$(DLMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.Tasks.NUnit3" />
+  <UsingTask AssemblyFile="$(DLMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.GetVersionParts" />
+  <UsingTask AssemblyFile="$(DLMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.EncryptForLocalMachineScope" />
+  <UsingTask AssemblyFile="$(DLMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.DecryptForLocalMachineScope" />
 </Project>
