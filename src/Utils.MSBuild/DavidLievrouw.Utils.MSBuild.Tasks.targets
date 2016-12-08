@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <UsingTask AssemblyFile="$(DLMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.Tasks.NUnit3" />
-  <UsingTask AssemblyFile="$(DLMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.GetVersionParts" />
-  <UsingTask AssemblyFile="$(DLMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.EncryptForLocalMachineScope" />
-  <UsingTask AssemblyFile="$(DLMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.DecryptForLocalMachineScope" />
+  <UsingTask AssemblyFile="$(DLMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.Tasks.GetVersionParts" />
+  <UsingTask AssemblyFile="$(DLMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.Tasks.EncryptForLocalMachineScope" />
+  <UsingTask AssemblyFile="$(DLMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.Tasks.DecryptForLocalMachineScope" />
 </Project>

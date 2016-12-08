@@ -46,7 +46,6 @@
 	  Workers="4"
       ContinueOnError="true"
       OutputXmlFile="$(ResultsOutputPath)\nunit-unittests.xml" />
-    <Message Text="##teamcity[importData type='nunit' path='$(ResultsOutputPath)\nunit-unittests.xml']"/>
   </Target>
   
   <Target Name="UnitTest" DependsOnTargets="UnitTestNET" />

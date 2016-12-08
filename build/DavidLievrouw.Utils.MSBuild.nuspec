@@ -12,6 +12,7 @@
     <copyright>Copyright (c) 2016 David Lievrouw</copyright>
     <dependencies>
       <group targetFramework="net462">
+        <dependency id="DavidLievrouw.Utils" version="4.0.0" />
         <dependency id="FluentValidation" version="6.2.1.0" />
       </group>
     </dependencies>

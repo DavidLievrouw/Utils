@@ -66,7 +66,7 @@
   
   <Target Name="Build">
     <MSBuild 
-      Projects="$(SourceDirectory)\Utils.MSBuild.IntegrationTests\Utils.MSBuild.IntegrationTests.csproj;"
+      Projects="$(SourceDirectory)\Utils.IntegrationTests\Utils.IntegrationTests.csproj;"
 	  Targets="Build"
       Properties="Configuration=$(Configuration);VisualStudioVersion=$(VisualStudioVersion)"
       StopOnFirstFailure="true"
@@ -75,17 +75,17 @@
   </Target>
   
   <Target Name="IntegrationTestNET" DependsOnTargets="Build">
-    <CreateItem Include="$(SourceDirectory)\Utils.MSBuild.IntegrationTests\bin\$(Configuration)\DavidLievrouw.Utils.MSBuild.IntegrationTests.dll;">
+    <CreateItem Include="$(SourceDirectory)\Utils.IntegrationTests\bin\$(Configuration)\DavidLievrouw.Utils.IntegrationTests.dll;">
       <Output TaskParameter="Include" ItemName="NUnitTestAssemblies" />
     </CreateItem>
-    
-	<NUnit
+	
+	<NUnit3
       Assemblies="@(NUnitTestAssemblies)"
       ToolPath="$(NUnitPath)"
-      Framework="net-4.5"
+      Framework="v4.5"
+	  Workers="4"
       ContinueOnError="true"
       OutputXmlFile="$(ResultsOutputPath)\nunit-integrationtests.xml" />
-    <Message Text="##teamcity[importData type='nunit' path='$(ResultsOutputPath)\nunit-integrationtests.xml']"/>
   </Target>
   
   <Target Name="RunIntegrationTests" DependsOnTargets="IntegrationTestNET" />

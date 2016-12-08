@@ -68,7 +68,7 @@
       Prefix="ns"
       Namespace="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd"
       XmlFileName="DavidLievrouw.Utils.ForTesting.nuspec"
-      XPath="/package/metadata/dependencies/group[@targetFramework='net452']/dependency[@id='DavidLievrouw.Utils']/@version"
+      XPath="/package/metadata/dependencies/group[@targetFramework='net462']/dependency[@id='DavidLievrouw.Utils']/@version"
       Value="$(NuSpecVersion)" />
     <XmlUpdate
       Prefix="ns"
@@ -81,6 +81,12 @@
       Namespace="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd"
       XmlFileName="DavidLievrouw.Utils.MSBuild.nuspec"
       XPath="/package/metadata/version"
+      Value="$(NuSpecVersion)" />
+    <XmlUpdate
+      Prefix="ns"
+      Namespace="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd"
+      XmlFileName="DavidLievrouw.Utils.MSBuild.nuspec"
+      XPath="/package/metadata/dependencies/group[@targetFramework='net462']/dependency[@id='DavidLievrouw.Utils']/@version"
       Value="$(NuSpecVersion)" />
     <XmlUpdate
       Prefix="ns"
