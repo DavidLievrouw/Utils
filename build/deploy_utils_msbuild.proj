@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Deploy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <RootPath>$(MSBuildProjectDirectory)\..</RootPath>
+    <BuildDirectory>$(RootPath)\build</BuildDirectory>
+    <DeploymentDirectory Condition="'$(DeploymentDirectory)'==''">$(BuildDirectory)\output\deploy\Utils.MSBuild</DeploymentDirectory>
+    <BuildOutputDirectory Condition="'$(BuildOutputDirectory)'==''">$(BuildDirectory)\output\build\Utils.MSBuild</BuildOutputDirectory>
+	<SourceDirectory>$(RootPath)\src</SourceDirectory>
+	<Configuration Condition="'$(Configuration)'==''">Release</Configuration>
+  </PropertyGroup>
+  
+  <Target Name="Deploy">
+    <MakeDir Directories="$(DeploymentDirectory)" />
+	
+  	<CreateItem Include="
+	              $(BuildOutputDirectory)\**\*"
+				Exclude="">
+      <Output ItemName="MSBuildTasksFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <Copy DestinationFolder="$(DeploymentDirectory)\%(RecursiveDir)" SourceFiles="@(MSBuildTasksFiles)" />
+  </Target>
+</Project>

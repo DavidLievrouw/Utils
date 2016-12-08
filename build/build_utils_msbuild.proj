@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <RootPath>$(MSBuildProjectDirectory)\..</RootPath>
+    <SourceDirectory>$(RootPath)\src</SourceDirectory>
+    <PackagesDirectory>$(MSBuildProjectDirectory)\packages</PackagesDirectory>
+    <BuildDirectory>$(RootPath)\build</BuildDirectory>
+	<MSBuildCommunityTasksPath>$(PackagesDirectory)\MSBuildTasks.1.5.0.214\tools</MSBuildCommunityTasksPath>
+	<Configuration Condition="'$(Configuration)'==''">Release</Configuration>
+	<BuildOutputDirectory Condition="'$(BuildOutputDirectory)'==''">$(BuildDirectory)\build\output\build\Utils.ForTesting</BuildOutputDirectory>
+	<VisualStudioVersion Condition="'$(VisualStudioVersion)'==''">14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets"/>
+  
+  <Target Name="Clean">
+	<RemoveDir ContinueOnError="false"
+		   Directories="$(BuildOutputDirectory)"
+		   Condition="Exists('$(BuildOutputDirectory)')" />
+  </Target>
+  
+  <Target Name="Build" DependsOnTargets="Clean">
+    <MSBuild Projects="$(SourceDirectory)\Utils.MSBuild\Utils.MSBuild.csproj"
+	         Targets="Build"
+			 StopOnFirstFailure="true"
+			 Properties="Configuration=$(Configuration);VisualStudioVersion=$(VisualStudioVersion);OutputPath=$(BuildOutputDirectory);" />
+  </Target>
+</Project>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:ns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>DavidLievrouw.Utils.MSBuild</id>
+    <version>4.0.0</version>
+    <authors>David Lievrouw</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <title>DavidLievrouw.Utils.MSBuild</title>
+    <projectUrl>https://github.com/DavidLievrouw/Utils</projectUrl>
+    <summary>Utilities for other DavidLievrouw NuGet packages or products, specifically for MSBuild.</summary>
+    <description>Utilities for other DavidLievrouw NuGet packages or products, specifically for MSBuild.</description>
+    <copyright>Copyright (c) 2016 David Lievrouw</copyright>
+    <dependencies />
+  </metadata>
+  <files>
+    <file src="output\deploy\Utils.MSBuild\DavidLievrouw.Utils.MSBuild.*" target="lib\net462\" />
+  </files>
+</package>

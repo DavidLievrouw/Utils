@@ -36,5 +36,14 @@
 			 StopOnFirstFailure="true"
 			 Targets="Deploy"
 			 BuildInParallel="false"/>
+			 
+    <MSBuild Projects="$(MSBuildProjectDirectory)\deploy_utils_msbuild.proj;"
+             Properties="
+			   Configuration=$(BuildConfiguration);
+			   BuildOutputDirectory=$(BuildOutputDirectory)\Utils.MSBuild;
+			   DeploymentDirectory=$(DeploymentDirectory)\Utils.MSBuild;"
+			 StopOnFirstFailure="true"
+			 Targets="Deploy"
+			 BuildInParallel="false"/>
   </Target>
 </Project>
