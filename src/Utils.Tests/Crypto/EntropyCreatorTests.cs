@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Text;
+using DavidLievrouw.Utils.ForTesting.DotNet;
 using NUnit.Framework;
 
 namespace DavidLievrouw.Utils.Crypto {

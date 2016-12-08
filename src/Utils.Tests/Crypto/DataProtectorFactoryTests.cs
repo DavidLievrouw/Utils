@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using DavidLievrouw.Utils.ForTesting.FluentAssertions;
+using FluentAssertions;
+using NUnit.Framework;
 
 namespace DavidLievrouw.Utils.Crypto {
   [TestFixture]
@@ -12,7 +14,7 @@ namespace DavidLievrouw.Utils.Crypto {
 
     [Test]
     public void ConstructorTests() {
-      Assert.That(_sut.NoDependenciesAreOptional());
+      _sut.Should().HaveExactlyOneConstructorWithoutOptionalParameters();
     }
 
     [Test]
