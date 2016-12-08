@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DavidLievrouw.Utils</RootNamespace>
     <AssemblyName>DavidLievrouw.Utils</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -62,7 +62,7 @@
     <Compile Include="ExtensionsForT.IsNullOrDefault.cs" />
     <Compile Include="IAdapter.cs" />
     <Compile Include="IConverter.cs" />
-    <Compile Include="IQueryHandler.cs" />
+    <Compile Include="IHandler.cs" />
     <Compile Include="ISystemClock.cs" />
     <Compile Include="RealSystemClock.cs" />
   </ItemGroup>

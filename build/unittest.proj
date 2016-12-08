@@ -8,8 +8,8 @@
 	<ResultsOutputPath>$(BuildDirectory)\log</ResultsOutputPath>
     <PackagesPath>$(BuildDirectory)\packages</PackagesPath>
 	<Configuration Condition="'$(Configuration)'==''">Release</Configuration>
-    <MSBuildCommunityTasksPath>$(PackagesPath)\MSBuildTasks.1.5.0.196\tools</MSBuildCommunityTasksPath>
-	<NUnitPath>$(PackagesPath)\NUnit.ConsoleRunner.3.2.1\tools</NUnitPath>
+    <MSBuildCommunityTasksPath>$(PackagesPath)\MSBuildTasks.1.5.0.214\tools</MSBuildCommunityTasksPath>
+	<NUnitPath>$(PackagesPath)\NUnit.ConsoleRunner.3.5.0\tools</NUnitPath>
   </PropertyGroup>
   <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.Targets"/>
   

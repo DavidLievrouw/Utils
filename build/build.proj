@@ -8,7 +8,7 @@
     <BuildDirectory>$(RootPath)\build</BuildDirectory>
     <BuildOutputDirectory>$(BuildDirectory)\output\build</BuildOutputDirectory>
     <BuildConfiguration Condition="'$(BuildConfiguration)' == ''">Release</BuildConfiguration>
-    <MSBuildCommunityTasksPath>$(PackagesDirectory)\MSBuildTasks.1.5.0.196\tools</MSBuildCommunityTasksPath>
+    <MSBuildCommunityTasksPath>$(PackagesDirectory)\MSBuildTasks.1.5.0.214\tools</MSBuildCommunityTasksPath>
     <ExtensionTasksPath>$(PackagesDirectory)\MSBuild.Extension.Pack.1.8.0\build\net40\</ExtensionTasksPath>
   </PropertyGroup>
   <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets"/>

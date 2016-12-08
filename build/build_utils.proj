@@ -5,7 +5,7 @@
     <SourceDirectory>$(RootPath)\src</SourceDirectory>
     <PackagesDirectory>$(MSBuildProjectDirectory)\packages</PackagesDirectory>
     <BuildDirectory>$(RootPath)\build</BuildDirectory>
-	<MSBuildCommunityTasksPath>$(PackagesDirectory)\MSBuildTasks.1.5.0.196\tools</MSBuildCommunityTasksPath>
+	<MSBuildCommunityTasksPath>$(PackagesDirectory)\MSBuildTasks.1.5.0.214\tools</MSBuildCommunityTasksPath>
 	<Configuration Condition="'$(Configuration)'==''">Release</Configuration>
 	<BuildOutputDirectory Condition="'$(BuildOutputDirectory)'==''">$(BuildDirectory)\build\output\build\Utils</BuildOutputDirectory>
 	<VisualStudioVersion Condition="'$(VisualStudioVersion)'==''">14.0</VisualStudioVersion>
