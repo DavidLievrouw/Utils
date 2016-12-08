@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <UGMSBuildTasksPath Condition="'$(UGMSBuildTasksPath)' == ''">$(MSBuildThisFileDirectory)</UGMSBuildTasksPath>
+    <UGMSBuildTasksLib>$([MSBUILD]::Unescape($(UGMSBuildTasksPath)\DavidLievrouw.Utils.MSBuild.dll))</UGMSBuildTasksLib>
+  </PropertyGroup>
+
+  <UsingTask AssemblyFile="$(UGMSBuildTasksLib)" TaskName="DavidLievrouw.Utils.MSBuild.Tasks.NUnit3" />
+</Project>

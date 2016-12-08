@@ -79,13 +79,13 @@
 	<XmlUpdate
       Prefix="ns"
       Namespace="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd"
-      XmlFileName="DavidLievrouw.MSBuild.nuspec"
+      XmlFileName="DavidLievrouw.Utils.MSBuild.nuspec"
       XPath="/package/metadata/version"
       Value="$(NuSpecVersion)" />
     <XmlUpdate
       Prefix="ns"
       Namespace="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd"
-      XmlFileName="DavidLievrouw.MSBuild.nuspec"
+      XmlFileName="DavidLievrouw.Utils.MSBuild.nuspec"
       XPath="/package/metadata/copyright"
       Value="Copyright (c) $(Year) David Lievrouw" />
   </Target>
